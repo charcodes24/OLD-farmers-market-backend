@@ -1,0 +1,5 @@
+class Customer < 
+    has_secure_password
+    has_many :orders
+    has_many :items, through: :orders 
+end
