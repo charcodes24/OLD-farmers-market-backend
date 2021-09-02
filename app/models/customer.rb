@@ -1,5 +1,5 @@
-class Customer < 
+class Customer < ApplicationRecord
     has_secure_password
     has_many :orders
-    has_many :items, through: :orders 
+    has_many :items, through: :order_items
 end
