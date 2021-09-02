@@ -1,3 +1,4 @@
 class CustomerSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :username
+  has_many :orders
 end
