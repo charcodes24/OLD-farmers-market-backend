@@ -3,9 +3,8 @@ class VendorsController < ApplicationController
 
   # GET /vendors
   def index
-    @vendors = Vendor.all
-
-    render json: @vendors
+    vendors = Vendor.all
+    render json: vendors
   end
 
   # GET /vendors/1
