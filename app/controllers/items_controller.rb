@@ -3,10 +3,10 @@ class ItemsController < ApplicationController
 
   # GET /items
   def index
-    
-    @items = Item.where(vendor_id: params[:vendor_id])
-
-    render json: @items
+    items = Item.where(vendor_id: params[:vendor_id].to_i)
+    vendor = Vendor.find(params[:vendor_id].to_i)
+    # byebug
+    render json: items, json: vendor  
   end
 
   # GET /items/1
