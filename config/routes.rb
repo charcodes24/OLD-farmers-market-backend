@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   resources :customers
   resources :sessions
 
-
   get 'vendors/:id', to: 'vendors#show'
   # get '/vendors', to: 'vendors#index'
   get '/orders/:id/items', to: 'orders#show'
