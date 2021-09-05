@@ -15,13 +15,8 @@ class CustomersController < ApplicationController
 
   # POST /customers
   def create
-    @customer = Customer.new(customer_params)
-
-    if @customer.save
-      render json: @customer, status: :created, location: @customer
-    else
-      render json: @customer.errors, status: :unprocessable_entity
-    end
+    customer = Customer.create!(customer_params)
+    render json: customer, status: :created 
   end
 
   # PATCH/PUT /customers/1
@@ -29,7 +24,7 @@ class CustomersController < ApplicationController
     if @customer.update(customer_params)
       render json: @customer
     else
-      render json: @customer.errors, status: :unprocessable_entity
+      render json: @customer.errors, status: :unprocessable_entity_
     end
   end
 
