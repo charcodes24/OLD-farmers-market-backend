@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     resources :items, only: [:index, :show]
   end
   resources :customers
+  resources :sessions
+
 
   get 'vendors/:id', to: 'vendors#show'
   # get '/vendors', to: 'vendors#index'
