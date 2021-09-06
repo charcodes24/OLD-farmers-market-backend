@@ -13,13 +13,13 @@ Rails.application.routes.draw do
   post '/signup', to: 'customers#create' 
 
   #keeping user logged in
-  get '/me', to: 'cusomters#show'
+  get '/me', to: 'customers#show'
 
   #signing user in / authenticating user
   post '/login', to: 'sessions#create'
 
   #signing user out
-  delete '/logout', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
 
   get 'vendors/:id', to: 'vendors#show'
   # get '/vendors', to: 'vendors#index'

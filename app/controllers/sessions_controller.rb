@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
                                                                                                        
     end
 
-    def destroy 
+    def destroy
         session.delete :customer_id
         head :no_content 
     end
