@@ -20,10 +20,8 @@ class CustomersController < ApplicationController
 
   # POST /customers
   def create
-    byebug
     customer = Customer.create!(customer_params)
     session[:user_id] = customer.id 
-    byebug
     render json: customer, status: :created 
   end
 
@@ -49,6 +47,6 @@ class CustomersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def customer_params
-      params.permit(:customer, :username, :password, :password_confirmation)
+      customer_params = params.require(:customer).permit(:username, :password, :password_confirmation)
     end
 end
