@@ -14,13 +14,8 @@ class VendorsController < ApplicationController
 
   # POST /vendors
   def create
-    @vendor = Vendor.new(vendor_params)
-
-    if @vendor.save
-      render json: @vendor, status: :created, location: @vendor
-    else
-      render json: @vendor.errors, status: :unprocessable_entity
-    end
+    vendor = Vendor.create!(vendor_params)
+    render json: vendor, status: :created
   end
 
   # PATCH/PUT /vendors/1
@@ -45,6 +40,6 @@ class VendorsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def vendor_params
-      params.require(:vendor).permit(:name, :description, :category, :username, :password_digest)
+      params.require(:vendor).permit(:name, :description, :category, :username, :password, :password_confirmation)
     end
 end
