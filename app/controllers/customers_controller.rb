@@ -1,16 +1,10 @@
 class CustomersController < ApplicationController
-  before_action :set_customer, only: [:show, :update, :destroy]
-
-  # GET /customers
-  def index
-    @customers = Customer.all
-
-    render json: @customers
-  end
+  skip_before_action: :authorize, only: :create 
 
   # GET /customers/1
   def show
-    customer = Customer.find_by(id: session[:customer_id])
+    byebug
+    customer = Customer.find(session[:customer_id])
     if customer 
       render json: customer 
     else 
