@@ -1,5 +1,5 @@
 class OrderItemsController < ApplicationController
-  before_action :set_order_item, only: [:show, :update, :destroy]
+  skip_before_action :authorize
 
   # GET /order_items
   def index

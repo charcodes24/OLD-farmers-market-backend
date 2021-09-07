@@ -1,5 +1,5 @@
 class VendorsController < ApplicationController
-  before_action :set_vendor, only: [:show, :update, :destroy]
+  skip_before_action :authorize
 
   # GET /vendors
   def index
