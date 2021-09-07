@@ -1,9 +1,8 @@
 class CustomersController < ApplicationController
-  skip_before_action: :authorize, only: :create 
+  skip_before_action :authorize, only: :create 
 
   # GET /customers/1
   def show
-    byebug
     customer = Customer.find(session[:customer_id])
     if customer 
       render json: customer 
