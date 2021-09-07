@@ -18,8 +18,11 @@ Rails.application.routes.draw do
   #keeping user logged in
   get '/me', to: 'customers#show'
 
-  #signing user in / authenticating user
+  #signing customer in / authenticating customer
   post '/login', to: 'sessions#create'
+
+  #signing vendor in 
+  post '/login_vendor', to: 'sessions#create_vendor'
 
   #signing user out
   delete '/logout', to: 'sessions#destroy'

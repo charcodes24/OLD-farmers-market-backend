@@ -9,7 +9,12 @@ class VendorsController < ApplicationController
 
   # GET /vendors/1
   def show
-    render json: @vendor
+    vendor = Vendor.find(session[:vendor_id])
+    if vendor 
+      render json: vendor 
+    else 
+      render json: { error: "Not authorized" }, status: :unauthorized 
+    end
   end
 
   # POST /vendors
