@@ -16,16 +16,17 @@ Rails.application.routes.draw do
   post'/signupvendor', to: 'vendors#create'
 
   #keeping user logged in
-  get '/me', to: 'customers#show'
+  get '/customer', to: 'customers#show'
 
   #keeping vendor logged in 
-  get '/me', to: 'vendors#show'
+  get '/vendor', to: 'vendors#show'
 
   #signing customer in / authenticating customer
-  post '/login', to: 'sessions#create'
+  post '/login', to: 'sessions#create_customer'
+
 
   #signing vendor in 
-  post '/login_vendor', to: 'sessions#create_vendor'
+  # post '/login_vendor', to: 'sessions#create_vendor'
 
   #signing user out
   delete '/logout', to: 'sessions#destroy'

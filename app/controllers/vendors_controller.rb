@@ -10,6 +10,7 @@ class VendorsController < ApplicationController
   # GET /vendors/1
   def show
     vendor = Vendor.find(session[:vendor_id])
+    byebug
     if vendor 
       render json: vendor 
     else 
@@ -20,6 +21,7 @@ class VendorsController < ApplicationController
   # POST /vendors
   def create
     vendor = Vendor.create!(vendor_params)
+    sessions[:vendor_id] = vendor.id
     render json: vendor, status: :created
   end
 
