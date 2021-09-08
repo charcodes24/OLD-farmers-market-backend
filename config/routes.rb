@@ -21,14 +21,17 @@ Rails.application.routes.draw do
   #keeping vendor logged in 
   get '/vendor', to: 'vendors#show'
 
-  #signing customer in / authenticating customer
+  #signing customer or vendor in / authenticating
   post '/login', to: 'sessions#create'
+
+  #keeping customer and vendor logged in
+  get 'loggedin', to: 'login#show'
 
 
   #signing vendor in 
   # post '/login_vendor', to: 'sessions#create_vendor'
 
-  #signing user out
+  #signing customer or vendor out
   delete '/logout', to: 'sessions#destroy'
 
   #adding item 
