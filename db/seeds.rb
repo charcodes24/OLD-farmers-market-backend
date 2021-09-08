@@ -21,7 +21,8 @@ vendors = [
        category: "Beverage",
        username: "kombuchavendor", 
        password: "kombucha", 
-       password_confirmation: "kombucha"
+       password_confirmation: "kombucha", 
+       is_vendor: true 
    },
    {
        name: "Eggcellent Eggs",
@@ -29,7 +30,8 @@ vendors = [
        category: "Animal Products",
        username: "eggvendor", 
        password: "eggs", 
-       password_confirmation: "eggs"
+       password_confirmation: "eggs", 
+       is_vendor: true 
    },
    {
        name: "Fresh Squeeze",
@@ -37,7 +39,8 @@ vendors = [
        category: "Beverage",
        username: "juicevendor", 
        password: "juice", 
-       password_confirmation: "juice"
+       password_confirmation: "juice", 
+       is_vendor: true 
    },
    {
        name: "Component Coffee & Tea",
@@ -53,7 +56,8 @@ vendors = [
        category: "Miscellaneous",
        username: "flowervendor", 
        password: "flower", 
-       password_confirmation: "flower"
+       password_confirmation: "flower", 
+       is_vendor: true 
    },
    {
        name: "Yolkohm Ranch",
@@ -61,7 +65,8 @@ vendors = [
        category: "Animal Products",
        username: "meatvendor", 
        password: "meat", 
-       password_confirmation: "meat"
+       password_confirmation: "meat", 
+       is_vendor: true 
    },
    {
        name: "Sequoia Farms",
@@ -69,7 +74,8 @@ vendors = [
        category: "Produce",
        username: "producevendor", 
        password: "produce", 
-       password_confirmation: "produce"
+       password_confirmation: "produce", 
+       is_vendor: true 
    },
    {
        name: "Sage Roots",
@@ -77,7 +83,8 @@ vendors = [
        category: "Produce",
        username: "freshfoodvendor", 
        password: "freshfood", 
-       password_confirmation: "freshfood"
+       password_confirmation: "freshfood", 
+       is_vendor: true 
    },
    {
        name: "Citrus Goods",
@@ -85,7 +92,8 @@ vendors = [
        category: "Produce",
        username: "citrusvendor", 
        password: "citrus", 
-       password_confirmation: "citrus"
+       password_confirmation: "citrus", 
+       is_vendor: true 
    },
    {
        name: "Berries and More",
@@ -93,7 +101,8 @@ vendors = [
        category: "Produce",
        username: "berryvendor", 
        password: "berries", 
-       password_confirmation: "berries"
+       password_confirmation: "berries", 
+       is_vendor: true 
    },
    {
        name: "Modern Macrame",
@@ -101,7 +110,8 @@ vendors = [
        category: "Artisan",
        username: "macramevendor", 
        password: "macrame", 
-       password_confirmation: "macrame"
+       password_confirmation: "macrame", 
+       is_vendor: true 
    },
    {
        name: "Molly's Soaps",
@@ -109,7 +119,8 @@ vendors = [
        category: "Artisan",
        username: "soapvendor", 
        password: "soap", 
-       password_confirmation: "soap"
+       password_confirmation: "soap", 
+       is_vendor: true 
    },
    {
        name: "Delicate Designs",
@@ -117,7 +128,8 @@ vendors = [
        category: "Artisan",
        username: "jewelryvendor", 
        password: "jewelry", 
-       password_confirmation: "jewelry"
+       password_confirmation: "jewelry", 
+       is_vendor: true 
    },
    {
        name: "Fido's Fix",
@@ -125,11 +137,12 @@ vendors = [
        category: "Miscelaneous",
        username: "dogtreatvendor", 
        password: "dogtreats", 
-       password_confirmation: "dogtreats"
+       password_confirmation: "dogtreats", 
+       is_vendor: true 
    },
 ]
  
-vendors.each {|vendor| Vendor.create(name: vendor[:name], description: vendor[:description], category: vendor[:category], username: vendor[:username], password: vendor[:password], password_confirmation: vendor[:password_confirmation])}
+vendors.each {|vendor| Vendor.create(name: vendor[:name], description: vendor[:description], category: vendor[:category], username: vendor[:username], password: vendor[:password], password_confirmation: vendor[:password_confirmation], is_vendor: vendor[:is_vendor])}
 
 puts "Seeding items..."
 
