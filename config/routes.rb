@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   get '/vendor', to: 'vendors#show'
 
   #signing customer in / authenticating customer
-  post '/login', to: 'sessions#create_customer'
+  post '/login', to: 'sessions#create'
 
 
   #signing vendor in 
