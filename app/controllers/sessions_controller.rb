@@ -3,10 +3,13 @@ class SessionsController < ApplicationController
 
   def create 
     user = Customer.find_by(username: params[:username]) || Vendor.find_by(username: params[:username])
-    # byebug
     session
     if user&.authenticate(params[:password])
-        session[:customer_id || :vendor_id] = user.id
+        if (user.is_vendor)
+          session[:vendor_id] = user.id
+        else 
+          session[:customer_id]
+        end
         render json: user 
     else 
         render json: { errors: ["Invalid username or password"] }, status: :unauthorized
@@ -14,7 +17,7 @@ class SessionsController < ApplicationController
   end
 
     def destroy
-        session.delete :customer_id
+        session.destroy
         # byebug
         render json: { message: "session deleted" }
     end

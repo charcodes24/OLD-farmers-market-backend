@@ -1,13 +1,16 @@
 class LoginController < ApplicationController
+    skip_before_action :authorize
 
     def show 
-        user = Customer.find(session[:customer_id]) || Vendor.find_by(session[:vendor_id])
-        byebug
-        if user 
+        if session[:customer_id]
+            user = Customer.find_by(id: session[:customer_id]) 
+        elsif session[:vendor_id]
+            user = Vendor.find_by(id: session[:vendor_id])
+        end
+        if user
             render json: user 
         else 
             render json: { error: "Not authorized" }, status: :unauthorized 
         end
     end
-
 end

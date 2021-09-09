@@ -20,7 +20,6 @@ class VendorsController < ApplicationController
   # POST /vendors
   def create
     vendor = Vendor.create!(vendor_params)
-    byebug
     session[:vendor_id] = vendor.id
     render json: vendor, status: :created
   end
@@ -47,6 +46,6 @@ class VendorsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def vendor_params
-      params.require(:vendor).permit(:name, :description, :category, :username, :password, :password_confirmation)
+      params.require(:vendor).permit(:name, :description, :username, :password, :password_confirmation, :is_vendor)
     end
 end

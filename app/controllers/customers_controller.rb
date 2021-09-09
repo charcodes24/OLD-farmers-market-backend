@@ -4,6 +4,7 @@ class CustomersController < ApplicationController
   # GET /customers/1
   def show
     customer = Customer.find(session[:customer_id])
+    
     if customer 
       render json: customer 
     else 
