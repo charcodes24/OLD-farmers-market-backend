@@ -1,11 +1,10 @@
 class SessionsController < ApplicationController
-    skip_before_action :authorize, only: [:create_customer, :create_vendor]
 
   def create 
     user = Customer.find_by(username: params[:username]) || Vendor.find_by(username: params[:username])
     session
     if user&.authenticate(params[:password])
-        if (user.is_vendor)
+        if (user.instance_of? Vendor)
           session[:vendor_id] = user.id
         else 
           session[:customer_id]

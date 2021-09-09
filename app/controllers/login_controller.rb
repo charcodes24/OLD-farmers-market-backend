@@ -1,9 +1,11 @@
 class LoginController < ApplicationController
-    skip_before_action :authorize
+    # skip_before_action :authorize
 
     def show 
         if session[:customer_id]
+            byebug
             user = Customer.find_by(id: session[:customer_id]) 
+            byebug
         elsif session[:vendor_id]
             user = Vendor.find_by(id: session[:vendor_id])
         end
