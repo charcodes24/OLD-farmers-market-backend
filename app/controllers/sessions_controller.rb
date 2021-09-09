@@ -3,6 +3,8 @@ class SessionsController < ApplicationController
 
   def create 
     user = Customer.find_by(username: params[:username]) || Vendor.find_by(username: params[:username])
+    # byebug
+    session
     if user&.authenticate(params[:password])
         session[:customer_id || :vendor_id] = user.id
         render json: user 
@@ -12,7 +14,8 @@ class SessionsController < ApplicationController
   end
 
     def destroy
-        session.delete :customer_id || :vendor_id
-        head :no_content 
+        session.delete :customer_id
+        # byebug
+        render json: { message: "session deleted" }
     end
 end
