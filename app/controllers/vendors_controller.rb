@@ -20,6 +20,7 @@ class VendorsController < ApplicationController
   # POST /vendors
   def create
     vendor = Vendor.create!(vendor_params)
+    byebug
     session[:vendor_id] = vendor.id
     render json: vendor, status: :created
   end
