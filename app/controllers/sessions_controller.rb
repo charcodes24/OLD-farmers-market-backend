@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
         if (user.instance_of? Vendor)
           session[:vendor_id] = user.id
         else 
-          session[:customer_id]
+          session[:customer_id] = user.id
         end
         render json: user 
     else 

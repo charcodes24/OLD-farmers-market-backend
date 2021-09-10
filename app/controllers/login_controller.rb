@@ -3,9 +3,7 @@ class LoginController < ApplicationController
 
     def show 
         if session[:customer_id]
-            byebug
             user = Customer.find_by(id: session[:customer_id]) 
-            byebug
         elsif session[:vendor_id]
             user = Vendor.find_by(id: session[:vendor_id])
         end
