@@ -33,6 +33,16 @@ class ItemsController < ApplicationController
     @item.destroy
   end
 
+  def update 
+        item = Item.find(params[:id])
+        if item
+            item.update!(item_params)
+            render json: item 
+        else 
+            render json: { error: "Power not found" }, status: :not_found
+        end
+    end 
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_item

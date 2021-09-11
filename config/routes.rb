@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :order_items
   resources :orders
-  resources :items
+  resources :items, only: [:update]
   resources :vendors do 
     resources :items, only: [:index, :show]
   end

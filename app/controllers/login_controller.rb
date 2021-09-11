@@ -13,4 +13,6 @@ class LoginController < ApplicationController
             render json: { error: "Not authorized" }, status: :unauthorized 
         end
     end
+
+    
 end
